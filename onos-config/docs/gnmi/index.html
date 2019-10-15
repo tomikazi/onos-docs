@@ -1,0 +1,1282 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Open Network Operating System (ONOS)">
+      
+      
+        <link rel="canonical" href="https://www.onosproject.org/onos-config/docs/gnmi/">
+      
+      
+        <meta name="author" content="Open Networking Foundation">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+    
+    
+      
+        <title>Northbound gNMI Service - onosproject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#northbound-gnmi-service" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.onosproject.org" title="onosproject" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/onos_logo_2017.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              onosproject
+            </span>
+            <span class="md-header-nav__topic">
+              Northbound gNMI Service
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.onosproject.org" title="onosproject" class="md-nav__button md-logo">
+      
+        <img src="../../../images/onos_logo_2017.png" width="48" height="48">
+      
+    </a>
+    onosproject
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="ONOS" class="md-nav__link">
+      ONOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/community-info/" title="Contacts and Calenders" class="md-nav__link">
+      Contacts and Calenders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/prerequisites/" title="Development Prerequisites" class="md-nav__link">
+      Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/dev_workflow/" title="Developer Workflow" class="md-nav__link">
+      Developer Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/contributing/" title="Contribution Guidelines" class="md-nav__link">
+      Contribution Guidelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Configuration Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Configuration Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="An Introduction to Configuration Susbsytem" class="md-nav__link">
+      An Introduction to Configuration Susbsytem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build/" title="How To Build Configuration Subsystem?" class="md-nav__link">
+      How To Build Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run/" title="How To Run Configuration Subsystem?" class="md-nav__link">
+      How To Run Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../debugging/" title="How To Debug Configuration Subsystem?" class="md-nav__link">
+      How To Debug Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Administrative And Diagnostic CLI" class="md-nav__link">
+      Administrative And Diagnostic CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modelplugin/" title="Extending Configuration Subsystem With Model Plugins" class="md-nav__link">
+      Extending Configuration Subsystem With Model Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Northbound gNMI Service
+      </label>
+    
+    <a href="./" title="Northbound gNMI Service" class="md-nav__link md-nav__link--active">
+      Northbound gNMI Service
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gnmi_cli-utility" title="gnmi_cli utility" class="md-nav__link">
+    gnmi_cli utility
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gnmi_cli-utility-through-onit" title="gnmi_cli utility through 'onit'" class="md-nav__link">
+    gnmi_cli utility through 'onit'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-from-local-machine" title="Accessing from local machine" class="md-nav__link">
+    Accessing from local machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" title="Namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-gnmi-get-request" title="Northbound gNMI Get Request" class="md-nav__link">
+    Northbound gNMI Get Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-get-operation" title="A simple Get operation" class="md-nav__link">
+    A simple Get operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-device-names-targets" title="List all device names (targets)" class="md-nav__link">
+    List all device names (targets)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-complete-configuration-for-a-device-target" title="List complete configuration for a device (target)" class="md-nav__link">
+    List complete configuration for a device (target)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-a-keyed-index-in-a-list" title="Get a keyed index in a list" class="md-nav__link">
+    Get a keyed index in a list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-wildcards-in-a-path" title="Use wildcards in a path" class="md-nav__link">
+    Use wildcards in a path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-read-only-state-get" title="Device read only state get" class="md-nav__link">
+    Device read only state get
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-set-request-via-gnmi" title="Northbound Set Request via gNMI" class="md-nav__link">
+    Northbound Set Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-delete-request-via-gnmi" title="Northbound Delete Request via gNMI" class="md-nav__link">
+    Northbound Delete Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-request-for-stream-notifications-via-gnmi" title="Northbound Subscribe Request for Stream Notifications via gNMI" class="md-nav__link">
+    Northbound Subscribe Request for Stream Notifications via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-once-request-via-gnmi" title="Northbound Subscribe Once Request via gNMI" class="md-nav__link">
+    Northbound Subscribe Once Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-poll-request-via-gnmi" title="Northbound Subscribe Poll Request via gNMI" class="md-nav__link">
+    Northbound Subscribe Poll Request via gNMI
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gnmi_extensions/" title="gNMI Extensions" class="md-nav__link">
+      gNMI Extensions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Topology Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Topology Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-topo/docs/cli/" title="How To Use Topology Subsystem CLI?" class="md-nav__link">
+      How To Use Topology Subsystem CLI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Command Line Interface Subsystem (CLI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Command Line Interface Subsystem (CLI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-cli/docs/setup/" title="How To Install and Run CLI Subsystem?" class="md-nav__link">
+      How To Install and Run CLI Subsystem?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Zero-Touch Provisioning (ZTP) Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Zero-Touch Provisioning (ZTP) Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-ztp/docs/setup/" title="How To Install And Run ZTP?" class="md-nav__link">
+      How To Install And Run ZTP?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Test Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Test Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-test/docs/setup/" title="How To Install and Run ONIT?" class="md-nav__link">
+      How To Install and Run ONIT?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-test/docs/run/" title="How To Use ONIT?" class="md-nav__link">
+      How To Use ONIT?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-test/docs/testing/" title="How To Write and Run Tests?" class="md-nav__link">
+      How To Write and Run Tests?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Graphical User Interface (GUI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Graphical User Interface (GUI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/" title="ONOS-GUI Subsystem" class="md-nav__link">
+      ONOS-GUI Subsystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/config-gui/" title="Configuration GUI" class="md-nav__link">
+      Configuration GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/architecture/" title="GUI Architecture" class="md-nav__link">
+      GUI Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/prerequisites/" title="GUI Development Prerequisites" class="md-nav__link">
+      GUI Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/run/" title="How To Run ONOS GUI?" class="md-nav__link">
+      How To Run ONOS GUI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gnmi_cli-utility" title="gnmi_cli utility" class="md-nav__link">
+    gnmi_cli utility
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gnmi_cli-utility-through-onit" title="gnmi_cli utility through 'onit'" class="md-nav__link">
+    gnmi_cli utility through 'onit'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-from-local-machine" title="Accessing from local machine" class="md-nav__link">
+    Accessing from local machine
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" title="Namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-gnmi-get-request" title="Northbound gNMI Get Request" class="md-nav__link">
+    Northbound gNMI Get Request
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-get-operation" title="A simple Get operation" class="md-nav__link">
+    A simple Get operation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-device-names-targets" title="List all device names (targets)" class="md-nav__link">
+    List all device names (targets)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-complete-configuration-for-a-device-target" title="List complete configuration for a device (target)" class="md-nav__link">
+    List complete configuration for a device (target)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-a-keyed-index-in-a-list" title="Get a keyed index in a list" class="md-nav__link">
+    Get a keyed index in a list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-wildcards-in-a-path" title="Use wildcards in a path" class="md-nav__link">
+    Use wildcards in a path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-read-only-state-get" title="Device read only state get" class="md-nav__link">
+    Device read only state get
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-set-request-via-gnmi" title="Northbound Set Request via gNMI" class="md-nav__link">
+    Northbound Set Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-delete-request-via-gnmi" title="Northbound Delete Request via gNMI" class="md-nav__link">
+    Northbound Delete Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-request-for-stream-notifications-via-gnmi" title="Northbound Subscribe Request for Stream Notifications via gNMI" class="md-nav__link">
+    Northbound Subscribe Request for Stream Notifications via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-once-request-via-gnmi" title="Northbound Subscribe Once Request via gNMI" class="md-nav__link">
+    Northbound Subscribe Once Request via gNMI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#northbound-subscribe-poll-request-via-gnmi" title="Northbound Subscribe Poll Request via gNMI" class="md-nav__link">
+    Northbound Subscribe Poll Request via gNMI
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="northbound-gnmi-service">Northbound gNMI service</h1>
+<p>The system provides a Northbound gNMI service.</p>
+<p>gNMI extensions supported on the Northbound are described in <a href="../gnmi_extensions/">gnmi_extensions.md</a> </p>
+<h2 id="gnmi_cli-utility">gnmi_cli utility</h2>
+<p>A simple way to issue a gNMI requests is to use the <code>gnmi_cli</code> utility from
+the <a href="https://github.com/openconfig/gnmi">OpenConfig</a> project.</p>
+<h3 id="gnmi_cli-utility-through-onit">gnmi_cli utility through 'onit'</h3>
+<blockquote>
+<p>On a deployed cluster the onos-cli pod has a gNMI client that can be used to
+format and send gNMI messages.
+To access the CLI use
+<pre class="highlight"><code>onit onos-cli</code></pre>
+to get in to the <code>onos-cli</code> pod and then run gnmi_cli from there.</p>
+</blockquote>
+<h3 id="accessing-from-local-machine">Accessing from local machine</h3>
+<p>An alternative is to install on your system, install as follows:
+<pre class="highlight"><code class="language-bash">go get -u github.com/openconfig/gnmi/cmd/gnmi_cli</code></pre></p>
+<blockquote>
+<p>For troubleshooting information see <a href="https://github.com/onosproject/simulators/blob/master/docs/gnmi/gnmi_user_manual.md">gnmi_user_manual.md</a></p>
+</blockquote>
+<h2 id="namespaces">Namespaces</h2>
+<p><strong>onos-config</strong> follows the YGOT project in simplification by not using namespaces in paths. This can be achieved 
+because the YANG models used do not have clashing device names that need to be qualified by namespaces. 
+This helps developers, avoiding un-needed complication and redundancy. </p>
+<h2 id="northbound-gnmi-get-request">Northbound gNMI Get Request</h2>
+<p><strong>onos-config</strong> extends standard gNMI as a method of accessing a complete
+configuration system consisting of <em>several</em> devices - each identified by <em>target</em>.
+It supports network wide configuration actions (multiple 
+updates on multiple devices at once, and rollback of same).</p>
+<p>The gNMI Northbound interface is available through https on port 5150.</p>
+<h3 id="a-simple-get-operation">A simple Get operation</h3>
+<p>Use <code>gnmi_cli -get</code> to get configuration for a particular device (target) from the system.</p>
+<blockquote>
+<p>Use "target" as the identifier of the device, and the "elem" collection is the path to the requested element.
+If config from several devices are required, several paths can be added
+<pre class="highlight"><code class="language-bash">gnmi_cli -get -address onos-config:5150 \
+    -proto "path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre></p>
+</blockquote>
+<h3 id="list-all-device-names-targets">List all device names (targets)</h3>
+<p>A useful way to retrieve all stored device names is with the command:
+<pre class="highlight"><code class="language-bash">gnmi_cli -get -address onos-config:5150 \
+    -proto "path: &lt;target: '*'&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre></p>
+<blockquote>
+<p>The value in the response can be an individual value or a tree of values depending
+on the scope of the request.</p>
+</blockquote>
+<h3 id="list-complete-configuration-for-a-device-target">List complete configuration for a device (target)</h3>
+<blockquote>
+<p>Use the following value for proto to get all configuration and operational state on a particular device
+   -proto "path: <target: 'localhost-1'>"</p>
+</blockquote>
+<h3 id="get-a-keyed-index-in-a-list">Get a keyed index in a list</h3>
+<p>Use a proto value like:</p>
+<blockquote>
+<p>-proto "path: <target: 'localhost-1',
+        elem: <name: 'system'>
+        elem: <name: 'openflow'> elem: <name: 'controllers'>
+        elem: <name: 'controller' key: <key: 'name' value: 'main'>&gt;
+        elem: <name: 'connections'> elem: <name: 'connection' key: <key: 'aux-id' value: '0'>&gt;
+        elem: <name: 'config'> elem: <name: 'address'>&gt;"</p>
+</blockquote>
+<h3 id="use-wildcards-in-a-path">Use wildcards in a path</h3>
+<p>onos-config supports the wildcards <code>*</code> and <code>...</code> in gNMI paths, meaning match
+one item of match all items respectively as defined in the gNMI
+<a href="https://github.com/openconfig/reference/blob/master/rpc/gnmi/gnmi-path-conventions.md#wildcards-in-paths">specification</a>.</p>
+<p>For instance to retrieve all instances of an interface use <code>*</code> as the key: 
+<pre class="highlight"><code class="language-bash">gnmi_cli -get -address onos-config:5150 \
+    -proto "path:&lt;target: 'localhost-1', elem:&lt;name:'interfaces' &gt; elem:&lt;name:'interface' key:&lt;key:'name' value:'*' &gt; &gt; elem:&lt;name:'config'&gt; elem:&lt;name:'enabled' &gt;&gt;" \
+        -timeout 5s -alsologtostderr \
+        -client_crt /etc/ssl/certs/client1.crt \
+        -client_key /etc/ssl/certs/client1.key \
+        -ca_crt /etc/ssl/certs/onfca.crt</code></pre></p>
+<blockquote>
+<p>This returns the <code>enabled</code> config attribute of both interfaces 'eth1' and 'admin'</p>
+</blockquote>
+<p>To retrieve both the config and state values of both then additionally the use
+<code>*</code> in place of <code>config</code>:
+<pre class="highlight"><code class="language-bash">gnmi_cli -get -address onos-config:5150 \
+    -proto "path:&lt;target: 'localhost-1', elem:&lt;name:'interfaces' &gt; elem:&lt;name:'interface' key:&lt;key:'name' value:'*' &gt; &gt; elem:&lt;name:'*'&gt; elem:&lt;name:'enabled' &gt;&gt;" \
+        -timeout 5s -alsologtostderr \
+        -client_crt /etc/ssl/certs/client1.crt \
+        -client_key /etc/ssl/certs/client1.key \
+        -ca_crt /etc/ssl/certs/onfca.crt</code></pre></p>
+<blockquote>
+<p>If the device is connected and the OperationState cache is populated this returns
+4 values - <code>eth1</code> config and state enabled values and <code>admin</code> config and
+state enabled values.</p>
+</blockquote>
+<h3 id="device-read-only-state-get">Device read only state get</h3>
+<p>To retrieve state, non-configurable values, there is no difference with a normal gNMI get request.
+An example follows:
+<pre class="highlight"><code class="language-bash">gnmi_cli -get -address onos-config:5150 \
+   -proto "path: &lt;target: 'localhost-1',elem:&lt;name:'system' &gt; elem:&lt;name:'openflow' &gt; elem:&lt;name:'controllers' &gt; elem:&lt;name:'controller' key:&lt;key:'name' value:'main' &gt; &gt; elem:&lt;name:'connections' &gt; elem:&lt;name:'connection' key:&lt;key:'aux-id' value:'0' &gt; &gt; elem:&lt;name:'state' &gt; elem:&lt;name:'address'&gt;&gt;" \
+   -timeout 5s -alsologtostderr \
+   -client_crt /etc/ssl/certs/client1.crt \
+   -client_key /etc/ssl/certs/client1.key \
+   -ca_crt /etc/ssl/certs/onfca.crt</code></pre></p>
+<h2 id="northbound-set-request-via-gnmi">Northbound Set Request via gNMI</h2>
+<p>Similarly, to make a gNMI Set request, use the <code>gnmi_cli -set</code> command as in the example below:</p>
+<p><pre class="highlight"><code class="language-bash">gnmi_cli -address onos-config:5150 -set \
+    -proto "update: &lt;path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt; val: &lt;string_val: 'Europe/Paris'&gt;&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre>
+giving a response like
+<pre class="highlight"><code class="language-bash">response: &lt;
+  path: &lt;
+    elem: &lt;
+      name: "system"
+    &gt;
+    elem: &lt;
+      name: "clock"
+    &gt;
+    elem: &lt;
+      name: "config"
+    &gt;
+    elem: &lt;
+      name: "timezone-name"
+    &gt;
+    target: "localhost-1"
+  &gt;
+  op: UPDATE
+&gt;
+timestamp: 1559122191
+extension: &lt;
+  registered_ext: &lt;
+    id: 100
+    msg: "happy_matsumoto"
+  &gt;
+&gt;</code></pre></p>
+<blockquote>
+<p>The result will include a field as a gNMI SetResponse extension 100
+giving randomly generated Network Change identifier, which may be subsequently used
+to rollback the change.</p>
+<p>If a specific name is desired for a Network Change, the set may be given in the
+SetRequest() with the 100 extension at the end of the -proto section like:
+<code>, extension: &lt;registered_ext: &lt;id: 100, msg: 'myfirstchange'&gt;&gt;</code>
+See <a href="../gnmi_extensions/">gnmi_extensions.md</a> for more on gNMI extensions supported.</p>
+<p>The corresponding -get for this require using the -proto
+<code>path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;</code></p>
+<p>Currently (Jul '19) checking of the contents done only when a Model Plugin is
+loaded for the device type. 2 checks are done</p>
+<ol>
+<li>that a attempt is not being made to change a readonly attribute and</li>
+<li>that valid data types and values are being used.</li>
+</ol>
+<p>The config is only forwarded down to the southbound layer only if the config is
+correct and the device is registered in the topocache (currently in the deviceStore)</p>
+</blockquote>
+<p>If the <code>target</code> device is not currently known to <code>onos-config</code> the system will store the configuration internally and apply
+it to the <code>target</code> device when/if it becomes available.</p>
+<p>When the <code>target</code> becomes available <code>onos-config</code> will compute the latest configuration for it based on the set of 
+applied changes and push it to the <code>target</code> with a standard <code>set</code> operation.</p>
+<h2 id="northbound-delete-request-via-gnmi">Northbound Delete Request via gNMI</h2>
+<p>A delete request in gNMI is done using the set request with <code>delete</code> paths instead of <code>update</code> or <code>replace</code>.
+To make a gNMI Set request do delete a path, use the <code>gnmi_cli -set</code> command as in the example below:</p>
+<pre class="highlight"><code class="language-bash">gnmi_cli -address onos-config:5150 -set \
+    -proto "delete: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre>
+
+<h2 id="northbound-subscribe-request-for-stream-notifications-via-gnmi">Northbound Subscribe Request for Stream Notifications via gNMI</h2>
+<p>Similarly, to make a gNMI Subscribe request for streaming, use the <code>gnmi_cli</code> command as in the example below, 
+please note the <code>0</code> as subscription mode to indicate streaming:</p>
+<pre class="highlight"><code class="language-bash">gnmi_cli -address onos-config:5150 \
+    -proto "subscribe:&lt;mode: 0, prefix:&lt;&gt;, subscription:&lt;path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;&gt;&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre>
+
+<blockquote>
+<p>This command will block until there is a change at the requested value that gets
+propagated to the underlying stream. Also as per <code>gnmi_cli</code> behaviour the updates get printed twice. </p>
+</blockquote>
+<h2 id="northbound-subscribe-once-request-via-gnmi">Northbound Subscribe Once Request via gNMI</h2>
+<p>Similarly, to make a gNMI Subscribe Once request, use the <code>gnmi_cli</code> command as in the example below, 
+please note the <code>1</code> as subscription mode to indicate to send the response once:</p>
+<pre class="highlight"><code class="language-bash">gnmi_cli -address onos-config:5150 \
+    -proto "subscribe:&lt;mode: 1, prefix:&lt;&gt;, subscription:&lt;path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;&gt;&gt;" \
+    -timeout 5s -alsologtostderr \
+    -client_crt /etc/ssl/certs/client1.crt \
+    -client_key /etc/ssl/certs/client1.key \
+    -ca_crt /etc/ssl/certs/onfca.crt</code></pre>
+
+<blockquote>
+<p>This command will fail if no value is set at that specific path. This is due to limitations of the gnmi_cli.</p>
+</blockquote>
+<h2 id="northbound-subscribe-poll-request-via-gnmi">Northbound Subscribe Poll Request via gNMI</h2>
+<p>Similarly, to make a gNMI Subscribe POLL request, use the <code>gnmi_cli</code> command as in the example below, 
+please note the <code>2</code> as subscription mode to indicate to send the response in a polling way every <code>polling_interval</code> specified seconds:</p>
+<pre class="highlight"><code class="language-bash">gnmi_cli -address onos-config:5150 \
+     -proto "subscribe:&lt;mode: 2, prefix:&lt;&gt;, subscription:&lt;sample_interval: 5, path: &lt;target: 'localhost-1', elem: &lt;name: 'system'&gt; elem: &lt;name: 'clock' &gt; elem: &lt;name: 'config'&gt; elem: &lt;name: 'timezone-name'&gt;&gt;&gt;&gt;" \
+     -timeout 5s \
+     -polling_interval 5s \
+     -client_crt /etc/ssl/certs/client1.crt \
+     -client_key /etc/ssl/certs/client1.key \
+     -ca_crt /etc/ssl/certs/onfca.crt</code></pre>
+
+<blockquote>
+<p>This command will fail if no value is set at that specific path. This is due to limitations of the gnmi_cli.</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                powered by
+                <a href="https://www.mkdocs.org" title="MkDocs">MkDocs</a>
+                and
+                <a href="https://squidfunk.github.io/mkdocs-material/"
+                   title="Material for MkDocs">
+                    Material for MkDocs</a>
+            </div>
+
+            <!-- Social links -->
+            
+            
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/onosproject" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://onosproject.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw" class="md-footer-social__link fa fa-youtube"></a>
+    
+  </div>
+
+            
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+    
+      <script src="../../../assets/javascripts/application.d9aa80ab.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

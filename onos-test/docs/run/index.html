@@ -1,0 +1,1258 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Open Network Operating System (ONOS)">
+      
+      
+        <link rel="canonical" href="https://www.onosproject.org/onos-test/docs/run/">
+      
+      
+        <meta name="author" content="Open Networking Foundation">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+    
+    
+      
+        <title>How To Use ONIT? - onosproject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#how-to-use-onit" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.onosproject.org" title="onosproject" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/onos_logo_2017.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              onosproject
+            </span>
+            <span class="md-header-nav__topic">
+              How To Use ONIT?
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.onosproject.org" title="onosproject" class="md-nav__button md-logo">
+      
+        <img src="../../../images/onos_logo_2017.png" width="48" height="48">
+      
+    </a>
+    onosproject
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="ONOS" class="md-nav__link">
+      ONOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/community-info/" title="Contacts and Calenders" class="md-nav__link">
+      Contacts and Calenders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/prerequisites/" title="Development Prerequisites" class="md-nav__link">
+      Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/dev_workflow/" title="Developer Workflow" class="md-nav__link">
+      Developer Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/contributing/" title="Contribution Guidelines" class="md-nav__link">
+      Contribution Guidelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Configuration Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Configuration Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/" title="An Introduction to Configuration Susbsytem" class="md-nav__link">
+      An Introduction to Configuration Susbsytem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/build/" title="How To Build Configuration Subsystem?" class="md-nav__link">
+      How To Build Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/run/" title="How To Run Configuration Subsystem?" class="md-nav__link">
+      How To Run Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/debugging/" title="How To Debug Configuration Subsystem?" class="md-nav__link">
+      How To Debug Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/cli/" title="Administrative And Diagnostic CLI" class="md-nav__link">
+      Administrative And Diagnostic CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/modelplugin/" title="Extending Configuration Subsystem With Model Plugins" class="md-nav__link">
+      Extending Configuration Subsystem With Model Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/gnmi/" title="Northbound gNMI Service" class="md-nav__link">
+      Northbound gNMI Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/gnmi_extensions/" title="gNMI Extensions" class="md-nav__link">
+      gNMI Extensions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Topology Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Topology Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-topo/docs/cli/" title="How To Use Topology Subsystem CLI?" class="md-nav__link">
+      How To Use Topology Subsystem CLI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Command Line Interface Subsystem (CLI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Command Line Interface Subsystem (CLI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-cli/docs/setup/" title="How To Install and Run CLI Subsystem?" class="md-nav__link">
+      How To Install and Run CLI Subsystem?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Zero-Touch Provisioning (ZTP) Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Zero-Touch Provisioning (ZTP) Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-ztp/docs/setup/" title="How To Install And Run ZTP?" class="md-nav__link">
+      How To Install And Run ZTP?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Test Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Test Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="How To Install and Run ONIT?" class="md-nav__link">
+      How To Install and Run ONIT?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How To Use ONIT?
+      </label>
+    
+    <a href="./" title="How To Use ONIT?" class="md-nav__link md-nav__link--active">
+      How To Use ONIT?
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-onit" title="How To Use ONIT?" class="md-nav__link">
+    How To Use ONIT?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-setup" title="Cluster Setup" class="md-nav__link">
+    Cluster Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-simulators" title="Adding Simulators" class="md-nav__link">
+    Adding Simulators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-networks" title="Adding Networks" class="md-nav__link">
+    Adding Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-applications" title="Adding Applications" class="md-nav__link">
+    Adding Applications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-into-a-cluster-node" title="SSH Into A Cluster Node" class="md-nav__link">
+    SSH Into A Cluster Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onos-cli-in-a-cluster" title="onos-cli in a cluster" class="md-nav__link">
+    onos-cli in a cluster
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onos-gui-access-inside-kubernetes" title="Onos-gui access inside Kubernetes" class="md-nav__link">
+    Onos-gui access inside Kubernetes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-access-for-development-microk8s" title="Gui access for Development - Microk8s" class="md-nav__link">
+    Gui access for Development - Microk8s
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-access-for-development-kind" title="Gui access for Development - KinD" class="md-nav__link">
+    Gui access for Development - KinD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../testing/" title="How To Write and Run Tests?" class="md-nav__link">
+      How To Write and Run Tests?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Graphical User Interface (GUI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Graphical User Interface (GUI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/" title="ONOS-GUI Subsystem" class="md-nav__link">
+      ONOS-GUI Subsystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/config-gui/" title="Configuration GUI" class="md-nav__link">
+      Configuration GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/architecture/" title="GUI Architecture" class="md-nav__link">
+      GUI Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/prerequisites/" title="GUI Development Prerequisites" class="md-nav__link">
+      GUI Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/run/" title="How To Run ONOS GUI?" class="md-nav__link">
+      How To Run ONOS GUI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-onit" title="How To Use ONIT?" class="md-nav__link">
+    How To Use ONIT?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-setup" title="Cluster Setup" class="md-nav__link">
+    Cluster Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-simulators" title="Adding Simulators" class="md-nav__link">
+    Adding Simulators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-networks" title="Adding Networks" class="md-nav__link">
+    Adding Networks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-applications" title="Adding Applications" class="md-nav__link">
+    Adding Applications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-into-a-cluster-node" title="SSH Into A Cluster Node" class="md-nav__link">
+    SSH Into A Cluster Node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onos-cli-in-a-cluster" title="onos-cli in a cluster" class="md-nav__link">
+    onos-cli in a cluster
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onos-gui-access-inside-kubernetes" title="Onos-gui access inside Kubernetes" class="md-nav__link">
+    Onos-gui access inside Kubernetes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui-access-for-development-microk8s" title="Gui access for Development - Microk8s" class="md-nav__link">
+    Gui access for Development - Microk8s
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gui-access-for-development-kind" title="Gui access for Development - KinD" class="md-nav__link">
+    Gui access for Development - KinD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>How To Use ONIT?</h1>
+                
+                <h2 id="how-to-use-onit">How To Use ONIT?</h2>
+<p>The primary interface for setting up test clusters and running tests is the <code>onit</code> command,
+which provides a suite of commands for setting up and tearing down test clusters, adding
+and removing <a href="https://github.com/onosproject/simulators">device simulators</a>, adding and removing networks of [stratum] switches, adding and removing applications, running tests, and viewing test history. To see list of <code>onit commands</code> run <code>onit</code> from the shell as follows:
+<pre class="highlight"><code class="language-bash">&gt; onit 
+Run onos integration tests on Kubernetes
+
+Usage:
+  onit [command]
+
+Available Commands:
+  add         Add resources to the cluster
+  completion  Generated bash or zsh auto-completion script
+  create      Create a test resource on Kubernetes
+  debug       Open a debugger port to the given resource
+  delete      Delete Kubernetes test resources
+  fetch       Fetch resources from the cluster
+  get         Get test configurations
+  help        Help about any command
+  onos-cli    Open onos-cli shell for executing commands
+  remove      Remove resources from the cluster
+  run         Run integration tests
+  set         Set test configurations
+  ssh         Open a ssh session to a node for executing remote commands
+
+Flags:
+  -h, --help   help for onit
+
+Use "onit [command] --help" for more information about a command.</code></pre></p>
+<h2 id="cluster-setup">Cluster Setup</h2>
+<p>The first step to running tests is to setup a test cluster with <code>onit create cluster</code>:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit create cluster
+ ✓ Creating cluster namespace
+ ✓ Setting up RBAC
+ ✓ Setting up Atomix controller
+ ✓ Starting Raft partitions
+ ✓ Adding secrets
+ ✓ Bootstrapping onos-topo cluster
+ ✓ Bootstrapping onos-config cluster
+ ✓ Setting up GUI
+ ✓ Setting up CLI
+ ✓ Creating ingress for services
+cluster-8face0a8-bed6-11e9-a853-3c15c2cff232</code></pre>
+
+<p>You can also specify the number of nodes for each onos subsystem, for example, to create a cluster which runs 
+two onos-config and two onos-topo pods, run the following command:
+<pre class="highlight"><code class="language-bash">onit create cluster onit-1 --config-nodes 2 --topo-nodes 2</code></pre></p>
+<p>To setup the cluster, onit creates a unique namespace within which to create test resources,
+deploys <a href="https://github.com/atomix/atomix">Atomix</a> inside the test namespace, and configures and deploys onos-config nodes.
+Once the cluster is setup, the command will output the name of the test namespace. The namespace
+can be used to view test resources via <code>kubectl</code>:</p>
+<pre class="highlight"><code class="language-bash">&gt; kubectl get pods -n cluster-8face0a8-bed6-11e9-a853-3c15c2cff232
+NAME                                 READY   STATUS    RESTARTS   AGE
+atomix-controller-7f95d69f47-sbsn4   1/1     Running   0          107s
+onos-cli-6c6cf7cc89-fmvwq            1/1     Running   0          63s
+onos-config-d68456bd7-xf9nv          1/1     Running   0          72s
+onos-config-envoy-5c49b74dc4-vpmm4   1/1     Running   0          71s
+onos-gui-6c78895d94-lj5vq            1/1     Running   0          65s
+onos-topo-654999644-674z5            1/1     Running   0          87s
+onos-topo-envoy-dcddf9dc6-2f5q9      1/1     Running   0          87s
+raft-1-0                             1/1     Running   0          98s</code></pre>
+
+<p>The <code>create cluster</code> command supports additional flags for defining the cluster architecture:
+<pre class="highlight"><code class="language-bash">  Flags:
+    -c, --config string               test cluster configuration (default "default")
+        --config-nodes int            the number of onos-config nodes to deploy (default 1)
+        --docker-registry string      an optional host:port for a private Docker registry
+    -h, --help                        help for cluster
+        --image-pull-policy string    the Docker image pull policy (default "IfNotPresent")
+        --image-tags stringToString   the image docker container tag for each node in the cluster (default [topo=debug,simulator=latest,stratum=latest,test=latest,atomix=latest,raft=latest,config=debug])
+    -s, --partition-size int          the size of each Raft partition (default 1)
+    -p, --partitions int              the number of Raft partitions to deploy (default 1)
+        --topo-nodes int              the number of onos-topo nodes to deploy (default 1) </code></pre>
+Once the cluster is setup, the cluster configuration will be added to the <code>onit</code> configuration
+and the deployed cluster will be set as the current cluster context:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get cluster
+cluster-b8c45834-a81c-11e9-82f4-3c15c2cff232</code></pre>
+
+<p>You can also create a cluster by passing a name to the <code>onit create cluster</code> command. To create a cluster with name <code>onit-2</code>, we run the following command:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit create cluster onit-1
+onit create cluster onit-1
+ ✓ Creating cluster namespace
+ ✓ Setting up RBAC
+ ✓ Setting up Atomix controller
+ ✓ Starting Raft partitions
+ ✓ Adding secrets
+ ✓ Bootstrapping onos-topo cluster
+ ✓ Bootstrapping onos-config cluster
+ ✓ Setting up GUI
+ ✓ Setting up CLI
+ ✓ Creating ingress for services
+onit-1</code></pre>
+
+<p>if we run <code>onit get clusters</code> command, we should be able to see the two clusters that we created:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get clusters
+ID                                             SIZE   PARTITIONS
+cluster-b8c45834-a81c-11e9-82f4-3c15c2cff232   1      1
+onit-1</code></pre>
+
+<p>When multiple clusters are deployed, you can switch between clusters by setting the current
+cluster context:</p>
+<p><pre class="highlight"><code class="language-bash">&gt; onit set cluster onit-1
+onit-1</code></pre>
+This will run all future cluster operations on the configured cluster. Alternatively, most commands support a flag to override the default cluster.</p>
+<p>You can also use <code>set</code> command to redeploy a deployment with a new container image. For example, to redeploy onos-config
+subsystem with a new debug image, you can run the following command:
+<pre class="highlight"><code class="language-bash">onit set image onos-config --image onosproject/onos-config:debug</code></pre></p>
+<p>To delete a cluster, run <code>onit delete cluster</code>:
+<pre class="highlight"><code class="language-bash">&gt; onit delete cluster
+✓ Deleting cluster namespace</code></pre></p>
+<h2 id="adding-simulators">Adding Simulators</h2>
+<p>Most tests require devices to be added to the cluster. The <code>onit</code> command supports adding and
+removing <a href="https://github.com/onosproject/simulators">device simulators</a> through the <code>add</code> and <code>remove</code> commands. To add a
+simulator to the current cluster, simply run <code>onit add simulator</code>:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit add simulator 
+✓ Setting up simulator
+✓ Reconfiguring onos-config nodes
+device-1186885096</code></pre>
+
+<p>When a simulator is added to the cluster, the cluster is reconfigured in two phases:
+* Bootstrap a new <a href="https://github.com/onosproject/simulators">device simulator</a> with the provided configuration
+* Reconfigure and redeploy the onos-config cluster with the new device in its stores</p>
+<p>To give a name to a simulator, pass a name to <code>onit add simulator</code> command as follows
+<pre class="highlight"><code class="language-bash">&gt; onit add simulator sim-2
+✓ Setting up simulator
+✓ Reconfiguring onos-config nodes
+sim-2</code></pre></p>
+<p>To get list of simulators, run <code>onit get simulators</code> as follows:</p>
+<p><pre class="highlight"><code class="language-bash">&gt; onit get simulators 
+device-1186885096
+sim-2</code></pre>
+Simulators can similarly be removed with the <code>remove simulator</code> command:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit remove simulator device-1186885096
+ ✓ Tearing down simulator
+ ✓ Reconfiguring onos-config nodes</code></pre>
+
+<p>As with the <code>add</code> command, removing a simulator requires that the onos-config cluster be reconfigured and redeployed.</p>
+<h2 id="adding-networks">Adding Networks</h2>
+<p>To run some of the tests on stratum switches, we can create a network of stratum switches using Mininet. To create a network of stratum switches, we can use <code>onit add network [Name] [Mininet Options]</code> as follows: </p>
+<ul>
+<li>To create a single node network, simply run <code>onit add network</code>. This command creates a single node network and assigns a name to it automatically. </li>
+<li>To create a linear network topology with two switches and name it <em>stratum-linear</em>, simply run the following command:</li>
+</ul>
+<pre class="highlight"><code class="language-bash">&gt; onit add network stratum-linear -- --topo linear,2
+✓ Setting up network
+✓ Reconfiguring onos-config nodes
+stratum-linear</code></pre>
+
+<p>When a network is added to the cluster, the cluster is reconfigured in two phases:
+* Bootstrap one or more than one new stratum switches with the provided configuration
+* Reconfigure and redeploy the onos-config cluster with the new switches in its stores</p>
+<p>To add a single node network topology, run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit add network
+✓ Setting up network
+✓ Reconfiguring onos-config nodes
+network-2878434070</code></pre></p>
+<p>To get list of networks, run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit get networks
+network-2878434070
+stratum-linear</code></pre>
+Networks can be removed using <code>onit remove network</code> command. For example, to remove the linear topolog that is created using the above command, you should run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit remove network stratum-linear
+ ✓ Tearing down network
+ ✓ Reconfiguring onos-config nodes</code></pre></p>
+<p>As with the <code>add</code> command, removing a network requires that the onos-config cluster be reconfigured and redeployed.</p>
+<p><strong>Note</strong>: In the current implementation, we support the following network topologies:</p>
+<ul>
+<li>A <em>Single</em> node network topology</li>
+<li>A <em>Linear</em> network topology</li>
+</ul>
+<h2 id="adding-applications">Adding Applications</h2>
+<p>Applications from outside of <code>onit</code> can be added to an <code>onit</code> cluster using the <code>onit add app</code> command. This command takes
+the name of the app as an argument. It also has the <code>--image</code> flag that allows a user to specify the image of 
+the application that should be  deployed. The user also can specify the pull policy for the image using <code>--image-pull-policy</code> flag. For example, to deploy the latest version of the <code>onos-ztp</code>  application:
+<pre class="highlight"><code class="language-bash">&gt; onit add app onos-ztp --image onosproject/onos-ztp:latest --image-pull-policy "Always" 
+ ✓ Setting up app
+ onos-ztp</code></pre></p>
+<p>To give a name to an app, pass a name to the <code>onit add app</code> command as follows
+<pre class="highlight"><code class="language-bash">&gt; onit add app onosproject/onos-ztp:latest ztp
+   ✓ Setting up app 
+  ztp</code></pre></p>
+<p>To get list of apps, run <code>onit get apps</code> as follows:</p>
+<p><pre class="highlight"><code class="language-bash">&gt; onit get apps
+  app-128922186</code></pre>
+Apps can be removed with the <code>remove app</code> command:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit remove app app-128922186
+   ✓ Tearing down app </code></pre>
+
+<h2 id="ssh-into-a-cluster-node">SSH Into A Cluster Node</h2>
+<p>onit allows you to ssh into a node using the following command:
+<pre class="highlight"><code class="language-bash">onit ssh &lt;name of a node&gt;</code></pre></p>
+<h2 id="onos-cli-in-a-cluster">onos-cli in a cluster</h2>
+<p>onit also provides a command that you can run <a href="../../../onos-cli/docs/setup/">onos-cli</a> commands via onit as follows:
+<pre class="highlight"><code class="language-bash">onit onos-cli
+~ $ onos
+ONOS command line client
+
+Usage:
+  onos [command]
+
+Available Commands:
+  completion  Generated bash or zsh auto-completion script
+  help        Help about any command
+  topo
+  ztp         ONOS zero-touch provisioning subsystem commands
+
+Flags:
+  -h, --help   help for onos
+
+Use "onos [command] --help" for more information about a command.</code></pre></p>
+<h3 id="onos-gui-access-inside-kubernetes">Onos-gui access inside Kubernetes</h3>
+<p>The correct way to access a Gui inside a cluster node is to have a Kubernetes
+<a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress</a> configured on the cluster. This handles load balancing and failover
+of nodes in a production environment.</p>
+<p>The Demo cluster has an ingress configured for port 80 and is available on the
+cluster's IP address 10.128.100.91 at port 31214.</p>
+<p>To access the GUI however it must be accessed by hostname <strong>onos-gui</strong> and so can
+be accessed at
+http://onos-gui:31214</p>
+<h4 id="gui-access-for-development-microk8s">Gui access for Development - Microk8s</h4>
+<blockquote>
+<p>This following procedure has only been proven only on Microk8s on Ubuntu.</p>
+</blockquote>
+<p>Additionally for <a href="../../../onos-gui/docs/">GUI</a> development
+(only) the browser running under Angular CLI will need to access
+http://onos-config-envoy:8080 and http://onos-topo-envoy:8080.
+On Microk8s to allow either of these it is necessary to further open the firewall
+(on Ubuntu) with
+<pre class="highlight"><code class="language-bash">sudo iptables -P FORWARD ACCEPT</code></pre>
+and also to add the ip addresses of these services running on Kubernetes to your
+local <strong>/etc/hosts</strong> file.</p>
+<pre class="highlight"><code class="language-bash">uonos@uonos-S210-X12RS-V2:~$ kubectl get svc -A
+onos-demo              onos-gui                    ClusterIP   10.103.230.163   &lt;none&gt;        80/TCP                       3d2h
+onos-demo              onos-config-envoy           ClusterIP   10.96.237.14     &lt;none&gt;        8080/TCP                     3d2h
+onos-demo              onos-topo-envoy             ClusterIP   10.97.188.229    &lt;none&gt;        8080/TCP                     3d2h
+uonos@uonos-S210-X12RS-V2:~$</code></pre>
+
+<p>These should be added to /etc/hosts like:
+<pre class="highlight"><code class="language-bash">uonos@uonos-S210-X12RS-V2:~$ cat /etc/hosts | grep envoy
+10.103.230.163 onos-gui
+10.96.237.14   onos-config-envoy
+10.97.188.229  onos-topo-envoy
+uonos@uonos-S210-X12RS-V2:~$</code></pre></p>
+<h4 id="gui-access-for-development-kind">Gui access for Development - KinD</h4>
+<blockquote>
+<p>The following procedure is for Kubernetes in Docker only.</p>
+</blockquote>
+<p>To access the GUI through KinD a port forwarding connection must be established:
+<pre class="highlight"><code class="language-bash">kubectl -n &lt;cluster-namespace&gt; port-forward &lt;onos-gui-pod-id&gt; 8080:80</code></pre>
+where the <cluster-namespace> and <onos-gui-pod-id> may be found with the command
+result (first 2 columns):
+<pre class="highlight"><code class="language-bash">scondon@Z420:~/go/src/github.com/onosproject/onos-test$ kubectl get pods -A | grep onos-gui
+onit-1        onos-gui-67b867c7c7-cpm5w                    1/1     Running   0          35m</code></pre></p>
+<blockquote>
+<p>This port forwarding arrangement must stay active as lone as the GUI is being
+accessed.</p>
+</blockquote>
+<p>This makes the GUI available at ~~http://localhost:8080~~ but it will not connect
+properly to the gRPC services in the <strong>onos-config-envoy</strong> proxy unless the GUI
+is accessed with the hostname "onos-gui".</p>
+<p>To make this work add onos-gui to the line with localhost in your /etc/hosts file e.g.:
+<pre class="highlight"><code class="language-text">127.0.0.1   localhost onos-gui</code></pre></p>
+<p>Then the GUI will then be available at http://onos-gui:8080</p>
+<p>If GUI development needs to be done on KinD an alternative arrangement where
+onos-config-envoy:8080 and onos-topo-envoy:8080 are exposed through port forwarding
+will have to be setup <strong>instead</strong>.</p>
+<blockquote>
+<p>Note these are <strong>only</strong> for GUI development</p>
+</blockquote>
+<p>To do this use:
+<pre class="highlight"><code class="language-bash">kubectl -n &lt;cluster-namespace&gt; port-forward &lt;onos-config-envoy-pod-id&gt; 8091:8080</code></pre>
+and in another terminal (remembering to set KUBECONFIG)
+<pre class="highlight"><code class="language-bash">kubectl -n &lt;cluster-namespace&gt; port-forward &lt;onos-topo-envoy-pod-id&gt; 8092:8080</code></pre>
+Then run Angular CLI in development mode with:
+<pre class="highlight"><code class="language-bash">ng serve --configuration=kind</code></pre></p>
+<p>Further information on running the GUI in development mode is at
+<a href="../../../onos-gui/docs/run/">onos-gui/run.md</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                powered by
+                <a href="https://www.mkdocs.org" title="MkDocs">MkDocs</a>
+                and
+                <a href="https://squidfunk.github.io/mkdocs-material/"
+                   title="Material for MkDocs">
+                    Material for MkDocs</a>
+            </div>
+
+            <!-- Social links -->
+            
+            
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/onosproject" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://onosproject.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw" class="md-footer-social__link fa fa-youtube"></a>
+    
+  </div>
+
+            
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+    
+      <script src="../../../assets/javascripts/application.d9aa80ab.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

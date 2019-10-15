@@ -1,0 +1,1020 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Open Network Operating System (ONOS)">
+      
+      
+        <link rel="canonical" href="https://www.onosproject.org/onos-test/docs/testing/">
+      
+      
+        <meta name="author" content="Open Networking Foundation">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+    
+    
+      
+        <title>How To Write and Run Tests? - onosproject</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.982221ab.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#running-tests" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.onosproject.org" title="onosproject" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/onos_logo_2017.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              onosproject
+            </span>
+            <span class="md-header-nav__topic">
+              How To Write and Run Tests?
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://www.onosproject.org" title="onosproject" class="md-nav__button md-logo">
+      
+        <img src="../../../images/onos_logo_2017.png" width="48" height="48">
+      
+    </a>
+    onosproject
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/onosproject" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    onosproject
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="ONOS" class="md-nav__link">
+      ONOS
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Developers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Developers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/community-info/" title="Contacts and Calenders" class="md-nav__link">
+      Contacts and Calenders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/prerequisites/" title="Development Prerequisites" class="md-nav__link">
+      Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/dev_workflow/" title="Developer Workflow" class="md-nav__link">
+      Developer Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../developers/contributing/" title="Contribution Guidelines" class="md-nav__link">
+      Contribution Guidelines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Configuration Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Configuration Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/" title="An Introduction to Configuration Susbsytem" class="md-nav__link">
+      An Introduction to Configuration Susbsytem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/build/" title="How To Build Configuration Subsystem?" class="md-nav__link">
+      How To Build Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/run/" title="How To Run Configuration Subsystem?" class="md-nav__link">
+      How To Run Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/debugging/" title="How To Debug Configuration Subsystem?" class="md-nav__link">
+      How To Debug Configuration Subsystem?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/cli/" title="Administrative And Diagnostic CLI" class="md-nav__link">
+      Administrative And Diagnostic CLI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/modelplugin/" title="Extending Configuration Subsystem With Model Plugins" class="md-nav__link">
+      Extending Configuration Subsystem With Model Plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/gnmi/" title="Northbound gNMI Service" class="md-nav__link">
+      Northbound gNMI Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-config/docs/gnmi_extensions/" title="gNMI Extensions" class="md-nav__link">
+      gNMI Extensions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Topology Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Topology Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-topo/docs/cli/" title="How To Use Topology Subsystem CLI?" class="md-nav__link">
+      How To Use Topology Subsystem CLI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Command Line Interface Subsystem (CLI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Command Line Interface Subsystem (CLI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-cli/docs/setup/" title="How To Install and Run CLI Subsystem?" class="md-nav__link">
+      How To Install and Run CLI Subsystem?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Zero-Touch Provisioning (ZTP) Subsystem
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Zero-Touch Provisioning (ZTP) Subsystem
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-ztp/docs/setup/" title="How To Install And Run ZTP?" class="md-nav__link">
+      How To Install And Run ZTP?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Test Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Test Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="How To Install and Run ONIT?" class="md-nav__link">
+      How To Install and Run ONIT?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run/" title="How To Use ONIT?" class="md-nav__link">
+      How To Use ONIT?
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        How To Write and Run Tests?
+      </label>
+    
+    <a href="./" title="How To Write and Run Tests?" class="md-nav__link md-nav__link--active">
+      How To Write and Run Tests?
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-single-tests" title="Running single Tests" class="md-nav__link">
+    Running single Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-suite-of-tests" title="Running a suite of Tests" class="md-nav__link">
+    Running a suite of Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-run-logs" title="Test Run logs" class="md-nav__link">
+    Test Run logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" title="Debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Graphical User Interface (GUI)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Graphical User Interface (GUI)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/" title="ONOS-GUI Subsystem" class="md-nav__link">
+      ONOS-GUI Subsystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/config-gui/" title="Configuration GUI" class="md-nav__link">
+      Configuration GUI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/architecture/" title="GUI Architecture" class="md-nav__link">
+      GUI Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/prerequisites/" title="GUI Development Prerequisites" class="md-nav__link">
+      GUI Development Prerequisites
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../onos-gui/docs/run/" title="How To Run ONOS GUI?" class="md-nav__link">
+      How To Run ONOS GUI?
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#running-single-tests" title="Running single Tests" class="md-nav__link">
+    Running single Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-suite-of-tests" title="Running a suite of Tests" class="md-nav__link">
+    Running a suite of Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-run-logs" title="Test Run logs" class="md-nav__link">
+    Test Run logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" title="Debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="API" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="running-tests">Running Tests</h1>
+<h2 id="running-single-tests">Running single Tests</h2>
+<p>Once the cluster has been setup for the test, to run a test simply use <code>onit run</code>:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit run test single-path
+ ✓ Starting test job: test-25324770
+=== RUN   single-path
+--- PASS: single-path (0.46s)
+PASS
+PASS</code></pre>
+
+<p>You can specify as many tests as desired:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit run test single-path transaction subscribe
+...</code></pre>
+
+<h2 id="running-a-suite-of-tests">Running a suite of Tests</h2>
+<p><code>onit</code> can also run a suite of tests e.g. <code>integration-tests</code> which encompasses all the active integration tests.
+<pre class="highlight"><code class="language-bash">&gt; onit run suite integration-tests
+ ✓ Starting test job: test-3109317976
+=== RUN   single-path
+--- PASS: single-path (0.20s)
+=== RUN   subscribe
+--- PASS: subscribe (0.09s)
+PASS</code></pre></p>
+<h2 id="test-run-logs">Test Run logs</h2>
+<p>Each test run is recorded as a job in the Kubernetes cluster. This ensures that logs, statuses,
+and exit codes are retained for the lifetime of the cluster. Onit supports viewing past test
+runs and logs via the <code>get</code> command:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get history
+ID                TESTS                     STATUS   EXIT CODE   MESSAGE
+test-25324770     test,single-path          PASSED   0
+test-2886892866   test,subscribe            PASSED   0
+test-3109317976   suite,integration-tests   PASSED   0</code></pre>
+
+<p>To get the logs from a specific test, use <code>onit get logs</code> with the test ID:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get logs test-2886892866
+=== RUN   test-single-path-test
+--- PASS: test-single-path-test (0.04s)
+PASS</code></pre>
+
+<h2 id="debugging">Debugging</h2>
+<p>The <code>onit</code> command provides a set of commands for debugging test clusters. The <code>onit</code> command
+can be used to <code>get logs</code> for every resource deployed in the test cluster. Simply pass the
+resource ID (e.g. test <code>ID</code>, node <code>ID</code>, partition <code>ID</code>, etc) to the <code>onit get logs</code> command
+to get the logs for a resource.</p>
+<p>To list all types of nodes (e.g. onos-topo, onos-config, etc) running in the cluster, use <code>onit get nodes</code>, the output will be like the following:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get nodes
+onit get nodes
+ID                             TYPE     STATUS
+onos-topo-7cd788fb7f-2zvsp     topo     RUNNING
+onos-topo-7cd788fb7f-rc6m5     topo     RUNNING
+onos-config-6f8fcf5954-55zn2   config   RUNNING
+onos-config-6f8fcf5954-pglkz   config   RUNNING</code></pre>
+
+<p>To get logs for the above node, run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit get logs onos-config-569c7d8546-jscg8
+I0625 21:55:32.027255       1 onos-config.go:114] Starting onos-config
+I0625 21:55:32.030184       1 manager.go:98] Configuration store loaded from /etc/onos-config/configs/configStore.json
+I0625 21:55:32.030358       1 manager.go:105] Change store loaded from /etc/onos-config/configs/changeStore.json
+I0625 21:55:32.031087       1 manager.go:112] Device store loaded from /etc/onos-config/configs/deviceStore.json
+I0625 21:55:32.031222       1 manager.go:119] Network store loaded from /etc/onos-config/configs/networkStore.json
+I0625 21:55:32.031301       1 manager.go:47] Creating Manager
+...</code></pre></p>
+<p>To list the Raft partitions running in the cluster, use <code>onit get partitions</code>:</p>
+<p><pre class="highlight"><code class="language-bash">&gt; onit get partitions
+ID   GROUP   NODES
+1    raft    raft-1-0</code></pre>
+To get logs for the above partions, run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit get logs raft-1-0
+21:10:24.466 [main] INFO  io.atomix.server.AtomixServerRunner - Node ID: raft-1-0
+21:10:24.472 [main] INFO  io.atomix.server.AtomixServerRunner - Partition Config: /etc/atomix/partition.json
+21:10:24.472 [main] INFO  io.atomix.server.AtomixServerRunner - Protocol Config: /etc/atomix/protocol.json
+21:10:24.473 [main] INFO  io.atomix.server.AtomixServerRunner - Starting server
+...</code></pre></p>
+<p>To list the tests that have been run, use <code>onit get history</code>:</p>
+<p><pre class="highlight"><code class="language-bash">&gt; onit get history
+ID                                     TESTS                   STATUS   EXIT CODE   MESSAGE
+3cf7311a-9776-11e9-bfc3-acde48001122   test-integration-test   PASSED   0
+68ad9154-977c-11e9-bcf2-acde48001122   test-integration-test   FAILED   1
+71a0623c-977c-11e9-8478-acde48001122   test-single-path-test   PASSED   0
+9e512cdc-9720-11e9-ba6e-acde48001122   *                       PASSED   0
+da629d06-9774-11e9-bb50-acde48001122   *                       PASSED   0</code></pre>
+To get logs for one of the above histories, run the following command:
+<pre class="highlight"><code class="language-bash">&gt; onit get logs 71a0623c-977c-11e9-8478-acde48001122
+=== RUN   test-single-path-test
+--- PASS: test-single-path-test (0.04s)
+PASS</code></pre></p>
+<p>To download logs from a node, you can run <code>onit fetch logs</code> command. For example, to download logs from <em>onos-config-66d54956f5-xwpsh</em> node, run the following command:
+<pre class="highlight"><code class="language-bash">onit fetch logs onos-config-66d54956f5-xwpsh</code></pre></p>
+<p>You can refer to <a href="../../../onos-config/docs/debugging/">Debug onos-config in Onit Using Delve</a> to learn more about debugging of onos-config pod using <a href="https://github.com/go-delve/delve"><em>Delve</em></a> debugger.</p>
+<h2 id="api">API</h2>
+<p>Tests are implemented using Go's <code>testing</code> package;</p>
+<pre class="highlight"><code class="language-go">func MyTest(t *testing.T) {
+    t.Fail("you messed up!")
+}</code></pre>
+
+<p>However, rather than running tests using <code>go test</code>, we provide a custom registry of tests to
+allow human-readable names to be assigned to tests for ease of use. Once you've written a test,
+register the test in an <code>init</code> function:</p>
+<pre class="highlight"><code class="language-go">func init() {
+    Registry.Register("my-test", MyTest)
+}</code></pre>
+
+<p>Once a test has been registered, you should be able to see the test via the <code>onit</code> command:</p>
+<pre class="highlight"><code class="language-bash">&gt; onit get tests
+my-test
+...</code></pre>
+
+<p>The test framework also provides the capability of adding your test to a suite defined in <code>suites.go</code>.
+To see the suites you can execute:
+<pre class="highlight"><code class="language-bash">&gt; onit get suites
+SUITE               TESTS
+alltests            single-path, subscribe, transaction
+sometests           subscribe, transaction
+integration-tests   single-path</code></pre></p>
+<p>To add your test to a suite in the init function the register method must be called with the suites parameter:
+<pre class="highlight"><code class="language-go">func init() {
+    Registry.RegisterTest("my-test", MyTest, []*runner.TestSuite{AllTests})
+}</code></pre></p>
+<p>The test framework provides utility functions for creating clients and other resources within
+the test environment. The test environment is provided by the <code>env</code> package:</p>
+<pre class="highlight"><code class="language-go">client, err := env.NewGnmiClient(context.Background(), "")
+...</code></pre>
+
+<p>When devices are deployed in the test configuration, a list of device IDs can be retrieved from
+the environment:</p>
+<pre class="highlight"><code class="language-go">devices := env.GetDevices()</code></pre>
+
+<p><a href="https://github.com/onosproject">onos</a>
+<a href="https://github.com/onosproject/onos-test">onos-test</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+    <!-- Further information -->
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+
+            <!-- Copyright and theme information -->
+            <div class="md-footer-copyright">
+                
+                powered by
+                <a href="https://www.mkdocs.org" title="MkDocs">MkDocs</a>
+                and
+                <a href="https://squidfunk.github.io/mkdocs-material/"
+                   title="Material for MkDocs">
+                    Material for MkDocs</a>
+            </div>
+
+            <!-- Social links -->
+            
+            
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/onosproject" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://onosproject.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://www.youtube.com/channel/UCTQaOpqno48GTimdwyfytFw" class="md-footer-social__link fa fa-youtube"></a>
+    
+  </div>
+
+            
+        </div>
+    </div>
+</footer>
+
+
+    </div>
+    
+      <script src="../../../assets/javascripts/application.d9aa80ab.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
